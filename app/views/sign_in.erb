@@ -5,7 +5,7 @@
     <div class="errors"><%= @error %></div>
   <% end %>
 
-  <form id="sign-in" method="post" action="/sessions">
+  <form id="sign-in" method="post" action="/sign_in">
     <label class="label" for="username">Username</label>
     <input type="text" name="user[username]" placeholder="Username" value="<%=@username%>"><br>
     <label class="label" for="password">Password</label>

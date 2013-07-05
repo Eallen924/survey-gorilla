@@ -1,5 +1,9 @@
-before do
-  @current_user = nil;
+# before do
+#   @current_user = nil;
+# end
+
+before '/sign_in' do
+  @username = nil
 end
 
 get '/' do
@@ -14,20 +18,29 @@ end
 
 post '/sign_in' do
   @user = User.authenticate(params[:user][:username],params[:user][:password])
-  @username = nil
   if @user
-    redirect '/'
+    session[:user_id] = @user.id
+    redirect '/list_surveys'
   else
+    @error = 'Failed to authenticate'
     @username = params[:user][:username]
     erb :sign_in
   end 
-
-  @email = 'an-email but not really;d'
 end
 
 get '/sign_up' do
-  # @user = {}
   erb :sign_up
+end
+
+post '/sign_up' do
+  @user = User.new(params[:user])
+  if @user.save
+    session[:user_id] = @user.id
+    redirect '/list_surveys'
+  else
+    @error = 'You failed.'
+    erb :sign_up
+  end
 end
 
 get '/list_surveys' do 
