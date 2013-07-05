@@ -7,9 +7,11 @@ before '/sign_in' do
 end
 
 get '/' do
-  # Look in app/views/index.erb
-  @current_user = nil;
-  erb :index
+  if current_user
+    redirect '/list_surveys'
+  else
+    redirect '/sign_in'
+  end
 end
 
 get '/sign_in' do
@@ -47,6 +49,7 @@ get '/list_surveys' do
   erb :list_surveys
 end
 
-get'/create_survey' do 
+get'/surveys/new' do
+  @survey = Survey.new
   erb :create_survey
 end

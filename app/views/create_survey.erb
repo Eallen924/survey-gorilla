@@ -1,16 +1,24 @@
 <div class"container">
   <form action="/surveys/:survey_id/edit" method="post">
     <input type="text" placeholder="Survey Name">
-    <input type="text" placeholder="How Many Questions?">
+<!--     <input type="text" placeholder="How Many Questions?"> -->
     <br>
-    <!-- questions loop -->
-    <form action="create_question" method="post">
-      <textarea name="question" id="" cols="30" rows="5" placeholder="Write Your Question Here:"></textarea><br>
-      <textarea name="question" id="" cols="30" rows="5" placeholder="Enter Possible answers, each separated by a new line"></textarea><br>
-    
-    </form>
-    <!-- end questions loop -->
-    <input type="submit" placeholder="Create Survey">
+
+    <% @survey.questions.each do |question| %>
+      <form action="questions/<%= question.id %>" method="post">
+        <textarea name="question" value="<%= question.text %>" id="" cols="30" rows="5" placeholder="Write Your Question Here:"></textarea><br>
+        <textarea name="question" value="<%= question.newline_options %>"id="" cols="30" rows="5" placeholder="Enter Possible answers, each separated by a new line"></textarea><br>
+      <input type="submit" value="Edit Question">
+      </form>
+    <% end %>
+
+    <form action="questions/new" method="post">
+        <textarea name="question" id="" cols="30" rows="5" placeholder="Write Your Question Here:"></textarea><br>
+        <textarea name="question" id="" cols="30" rows="5" placeholder="Enter Possible answers, each separated by a new line"></textarea><br>
+        <input type="submit" value="Add Question">
+      </form>
+
+    <input type="submit" value="Create Survey">
   </form>
 
 </div>
