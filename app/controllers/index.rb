@@ -9,14 +9,19 @@ get '/' do
 end
 
 get '/sign_in' do
-  @user = User.authenticate(params)
-  if @user.id
+  erb :sign_in
+end
+
+post '/sign_in' do
+  @user = User.authenticate(params[:user][:username],params[:user][:password])
+  @username = nil
+  if @user
     redirect '/'
   else
+    @username = params[:user][:username]
     erb :sign_in
   end 
 
-  @user = User.find_or_initialize_by_username(params[:user][:username])
   @email = 'an-email but not really;d'
 end
 
