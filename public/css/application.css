@@ -1,9 +1,118 @@
 .container {
   margin: 20px auto;
-  width: 600px;
+  width: 800px;
   padding: 0px 20px 20px 20px;
   border: 1px dotted black;
+  background-color: #D8D8D8;
+}
+
+.container h1 {
+  font-size: 17pt;
+
+}
+
+nav {
+  background-color: #555;
+  width: 100%;
+  height: 50px;
+  font-weight: bold;
+}
+
+nav .brand, nav .brand a {
+  margin-left: 25px;
+  font-size: 18pt;
+  text-decoration: none;
+  color: white;
+  width: 60%;
+  display: inline-block;
+}
+
+nav ul {
+  display: inline-block;
+  width: 30%;
+  text-align: right;
+}
+
+nav li {
+  color:white;
+  margin-right: 25px;
+  display: inline;
+}
+
+nav li a {
+  color: white;
+  text-decoration: none;
+}
+
+nav li a:hover {
+  color: black;
+  text-decoration: underline;
+}
+
+
+.skills_table{
+  width: 800px;
+  margin-top: 2em;
+  text-align: left;
+}
+table {
+  padding:20px 20px;
 }
 th {
   text-align: left;
+  text-decoration: underline;
+}
+
+td label{
+  float: left;
+}
+
+.proficiencies {
+  display: inline;
+  border: 1px solid gray;
+}
+form {
+  margin: 20px auto;
+
+}
+
+form label {
+  font-weight: bold;
+  margin-right: 20px;
+  text-align: left
+}
+
+input {
+  width: 200px;
+  margin-bottom: 10px;
+}
+
+td {
+  width: 200px;
+  text-align: left;
+  vertical-align: top;
+}
+
+td select {
+  width: 193px;
+}
+
+.errors {
+  color: red;
+}
+
+form.quirks {
+  display: inline-block;
+}
+
+.submit {
+  text-align: center;
+}
+
+.label {
+  margin: 0;
+  font-weight: bold;
+  float: left;
+  text-align: left;
+  width: 184px;
 }

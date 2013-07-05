@@ -1,0 +1,16 @@
+<div class"container">
+  <form action="/surveys/:survey_id/edit" method="post">
+    <input type="text" placeholder="Survey Name">
+    <input type="text" placeholder="How Many Questions?">
+    <br>
+    <!-- questions loop -->
+    <form action="create_question" method="post">
+      <textarea name="question" id="" cols="30" rows="5" placeholder="Write Your Question Here:"></textarea><br>
+      <textarea name="question" id="" cols="30" rows="5" placeholder="Enter Possible answers, each separated by a new line"></textarea><br>
+    
+    </form>
+    <!-- end questions loop -->
+    <input type="submit" placeholder="Create Survey">
+  </form>
+
+</div>
