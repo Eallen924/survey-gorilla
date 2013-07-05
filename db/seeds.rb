@@ -10,3 +10,11 @@
     end
   end
 end
+
+5.times do
+  Response.create(user_id: (rand(5)+1), option_id: (rand(300)+1)) 
+end
+
+5.times do
+ Participant.create(user_id: (rand(5)+1), survey_id: (rand(15)+1))
+end
