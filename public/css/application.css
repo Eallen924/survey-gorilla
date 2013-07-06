@@ -116,3 +116,14 @@ form.quirks {
   text-align: left;
   width: 184px;
 }
+.questions {
+  border: 1px solid black;
+  border-radius: 7px;
+}
+
+.questions > li {
+  float: left
+}
+.radio{
+  width: 30px;
+}

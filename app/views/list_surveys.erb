@@ -1,15 +1,12 @@
 <div class="container">
   <div class="surveys">
-    <!-- insert erb loop here for surveys -->
-      <div class="row" id="survey"> <!-- append id to the id -->
-        <div class="cell">
-          Username 
-        </div>
-        <div class="cell">
-         <a href="/surveys/:survey_id">Survey NAME</a> 
-        </div>
-      </div>
-    <!-- end loop -->
-  </div>
-  <a href="/surveys/new">Create Survey</a>
+    <h1><%=  User.all.first.username %></h1>
+    <% User.all.first.surveys.each do |survey| %>
+    <div class="name">
+     <a href="/survey/<%=survey.id%>"><%= survey.name %></a> 
+     <% end %>
+   </div>
+   <a href="/surveys/new">Create Survey</a>
+ </div>
 </div>
+

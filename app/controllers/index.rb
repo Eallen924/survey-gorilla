@@ -53,3 +53,17 @@ get'/surveys/new' do
   @survey = Survey.new
   erb :create_survey
 end
+
+get'/survey/:survey_id' do 
+  @survey = Survey.find(params[:survey_id])
+  erb :take_survey
+end
+
+post '/responses' do 
+  p params
+  p current_user
+  params.each do |question, answer|
+    Response.create(:user_id => current_user.id, :option_id => answer)
+  end
+  redirect 'list_surveys'
+end
